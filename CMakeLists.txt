@@ -5,3 +5,4 @@ set(CMAKE_CXX_STANDARD 11)
 
 add_executable(TwoSum TwoSum.cpp)
 add_executable(PalindromeNumber PalindromeNumber.cpp)
+add_executable(LongestCommonPrefix LongestCommonPrefix.cpp)
