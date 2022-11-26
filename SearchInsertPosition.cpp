@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -29,25 +30,39 @@ using namespace std;
 //    }
 //};
 
+//class Solution {
+//public:
+//    int searchInsert(vector<int> &nums, int target) {
+//        int low = 0, high = nums.size() - 1;
+//        int mid = int((low + high) / 2);
+//        while (low <= high) {
+//            if (nums[mid] == target) return mid;
+//            else if (nums[mid] > target) high = mid - 1;
+//            else if (nums[mid] < target) low = mid + 1;
+//            mid = int((low + high) / 2);
+//        }
+//        return low;
+//    }
+//};
+
+// wrote it myself , another solution, slower than binary search
 class Solution {
 public:
     int searchInsert(vector<int> &nums, int target) {
-        int low = 0, high = nums.size() - 1;
-        int mid = int((low + high) / 2);
-        while (low <= high) {
-            if (nums[mid] == target) return mid;
-            else if (nums[mid] > target) high = mid - 1;
-            else if (nums[mid] < target) low = mid + 1;
-            mid = int((low + high) / 2);
+        auto iter = find(nums.begin(), nums.end(), target);
+        if (iter == nums.end()) {
+            nums.push_back(target);
+            sort(nums.begin(), nums.end());
+            iter = find(nums.begin(), nums.end(), target);
         }
-        return low;
+        return distance(nums.begin(), iter);
     }
 };
 
 int main() {
     Solution solution;
     vector<int> v1{1, 3, 5, 6};
-    const int target{0};
+    const int target{2};
     auto answer = solution.searchInsert(v1, target);
     cout << answer << endl;
 
