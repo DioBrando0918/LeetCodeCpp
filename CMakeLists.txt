@@ -12,3 +12,4 @@ add_executable(RemoveDuplicatesfromSortedArray RemoveDuplicatesfromSortedArray.c
 add_executable(RemoveElement RemoveElement.cpp)
 add_executable(SearchInsertPosition SearchInsertPosition.cpp)
 add_executable(LengthofLastWord LengthofLastWord.cpp)
+add_executable(PlusOne PlusOne.cpp)
